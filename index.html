@@ -3,63 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kayan Yazı</title>
+    <title>Hoş Geldiniz</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
-        }
-
-        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000000; /* Siyah arka plan */
             position: relative;
-            width: 100%;
-            height: 18cm; /* Yüksekliği 18 cm olarak belirledik */
-            overflow: hidden;
         }
 
-        /* Kırmızı şeriti yalnızca üst kısımda göstermek */
-        .red-stripe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5%; /* Şeritin yüksekliği %5 olarak ayarlandı */
-            background-color: red;
-            z-index: 1; /* Şerit yazının altına yerleşiyor */
-        }
-
-        /* Kayan yazıyı tanımlıyoruz */
-        .scrolling-text {
-            position: absolute;
-            top: 0; /* Yazıyı tam şeridin üstüne yerleştiriyoruz */
-            left: 100%;
+        .message-container {
+            padding: 20px;
             color: white;
-            font-size: 24px;
-            padding: 3px 20px;
-            white-space: nowrap;
-            z-index: 2; /* Yazı şeridin üstünde olacak */
-            animation: scroll 12s linear infinite;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #3498db, 0 0 40px #3498db;
         }
 
-        /* Sağdan sola kayan animasyon */
-        @keyframes scroll {
+        @keyframes fadeIn {
             0% {
-                left: 100%;
+                opacity: 0;
+                transform: translateY(-20px);
             }
             100% {
-                left: -340%;
+                opacity: 1;
+                transform: translateY(0);
             }
         }
+
+        .instagram-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .instagram-logo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #ffffff, 0 0 30px #3498db;
+        }
+
+        .instagram-logo img {
+            width: 30px;
+            height: 30px;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="red-stripe"></div> <!-- Kırmızı sabit şerit -->
-        <div class="scrolling-text">Hey admin, sisteminiz çok düşük korunuyor, ekibimiz tarafından sizi uyarıyoruz.
 
-Saygılar,
-exe.royz | exe.jozd | emirk4nflayy</div>
+    <div class="message-container">
+        API Sistemine Hoş Geldiniz!
+        burası yazaklı bölge canım
     </div>
+
+    <a href="https://guns.lol/royz" target="_blank">
+        <div class="instagram-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Logo">
+        </div>
+    </a>
+
 </body>
 </html>
