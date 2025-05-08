@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>axxxxx</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Courier New', monospace;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0e0e0e;
+      color: #00ff99;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+      text-align: center;
+    }
+
+    section.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1, h2 {
+      font-size: 7vw;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 5vw;
+      max-width: 90%;
+      margin-bottom: 30px;
+    }
+
+    .scroll-btn {
+      padding: 14px 40px;
+      background-color: #00ff99;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-size: 4.5vw;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .scroll-btn:hover {
+      background-color: #00cc77;
+    }
+
+    footer {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    /* Müzik çalar stil */
+    .audio-player {
+      width: 90%;
+      max-width: 600px;
+      background: #000;
+      border: 3px solid #00ff99;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .audio-player button {
+      padding: 10px 20px;
+      background-color: #00ff99;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .audio-player button:hover {
+      background-color: #00cc77;
+    }
+
+    .audio-player button:disabled {
+      background-color: #333;
+      cursor: not-allowed;
+    }
+
+    .audio-player .track-name {
+      color: #00ff99;
+      font-size: 1.2rem;
+    }
+
+    .slideshow {
+      position: relative;
+      width: 90%;
+      max-width: 600px;
+      height: 300px;
+      margin: 40px auto 20px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .slide-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      border-radius: 12px;
+    }
+
+    .slide-img.active {
+      opacity: 1;
+    }
+
+    @media (min-width: 768px) {
+      h1, h2 { font-size: 3vw; }
+      p { font-size: 1.5rem; }
+      .scroll-btn { font-size: 1.2rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+    <section>
+    <h1>Merhaba Ben Royz</h1>
+    <button class="scroll-btn">İLERLE</button>
+  </section>
+
+  <section>
+    <p>Ben kim miyim mk ben Royz kartların efendisi demiycem ama işimi bok gibi yapanlardan da değilim banka mıymış POS cihazı mıymış kart chip’i miymiş ben hepsini çözdüm la</p>
+    <button class="scroll-btn">İLERLE</button>
+  </section>
+
+  <section>
+    <p>Bluetooth POS cihazla metrobüste milletin cebinden kart okutuyorum gece 2’de benim hesapta 180 bin TL var ben hâlâ Adana dürüm yiyorum mk</p>
+    <button class="scroll-btn">İLERLE</button>
+  </section>
+
+  <section>
+    <p>Azrail denen orospu çocuğu benim dump’ladığım kartları kendi imzasıyla kullanmış dedim bu kim lan adresini buldum Üsküdar’da çözdüm oyunu mk</p>
+    <button class="scroll-btn">İLERLE</button>
+  </section>
+
+  <section>
+  <p>Hâlâ kart okuyorum hâlâ dürüm yiyorum ve sistemin götünü siker gibi boşluklardan sızıyorum</p>
+  <button id="playBtn" class="scroll-btn">İLERLE</button>
+</section>
+
+<footer>
+  <h2>Royz Show</h2>
+
+  <!-- Müzik çalar -->
+  <div class="audio-player">
+    
+    <span class="track-name">Royz 𖣂</span>
+    <button id="pauseBtn" disabled>Durdur</button>
+  </div>
+
+  
+
+    
+    <audio id="bgm" preload="auto">
+      <source src="müzik.mp3" type="audio/mpeg">
+      Tarayıcın müziği desteklemiyor mk
+    </audio>
+
+    <!-- Resim Slaytı -->
+    <div class="slideshow">
+      <img src="1.jpg" class="slide-img active">
+      <img src="2.jpg" class="slide-img">
+      <img src="3.jpg" class="slide-img">
+    </div>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section')
+    const scrollBtns = document.querySelectorAll('.scroll-btn')
+    const audio = document.getElementById('bgm')
+    const playBtn = document.getElementById('playBtn')
+    const pauseBtn = document.getElementById('pauseBtn')
+    const slides = document.querySelectorAll('.slide-img')
+
+    const revealOnScroll = () => {
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top
+        if (top < window.innerHeight - 100) {
+          sec.classList.add('active')
+        }
+      })
+    }
+
+    scrollBtns.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        if (sections[i + 1]) {
+          sections[i + 1].scrollIntoView({ behavior: 'smooth' })
+        } else {
+          document.querySelector('footer').scrollIntoView({ behavior: 'smooth' })
+        }
+      })
+    })
+
+    let current = 0
+    setInterval(() => {
+      slides[current].classList.remove('active')
+      current = (current + 1) % slides.length
+      slides[current].classList.add('active')
+    }, 1400)
+
+    window.addEventListener('scroll', revealOnScroll)
+    window.addEventListener('load', revealOnScroll)
+
+    // Müzik kontrol
+    playBtn.addEventListener('click', () => {
+      audio.play()
+      playBtn.disabled = true
+      pauseBtn.disabled = false
+    })
+
+    pauseBtn.addEventListener('click', () => {
+      audio.pause()
+      playBtn.disabled = false
+      pauseBtn.disabled = true
+    })
+  </script>
+
+</body>
+</html>
