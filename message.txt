@@ -1,1 +1,5 @@
-hayal kirikligi
+{
+  "message": "Royz Empire'dan büyük güncelleme yayında!",
+  "image": "https://i.imgur.com/AwNn5OI.jpeg",
+  "link": "https://t.me/royzempire"
+}
