@@ -1,1 +1,10 @@
-selam bebegim
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basit HTML Sayfası</title>
+</head>
+<body>
+  <h1>Selam la</h1>
+  <p>Bu basit bir HTML sayfası amk</p>
+</body>
+</html>
