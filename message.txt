@@ -1,5 +1,5 @@
 {
   "message": "Royz Empire'dan büyük güncelleme yayında!",
-  "image": "https://i.imgur.com/AwNn5OI.jpeg",
+  "image": "https://images.seeklogo.com/logo-png/38/2/eba-egitim-bilisim-agi-logo-png_seeklogo-383700.png",
   "link": "https://t.me/royzempire"
 }
